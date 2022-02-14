@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PRSLibraryProject.Models {
-    class User {
+     public class User {
 
         public int Id { get; set; }
         [Required]

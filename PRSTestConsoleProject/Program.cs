@@ -7,7 +7,7 @@ using System.Linq;
 namespace PRSTestConsoleProject {
     class Program {
         static void Main(string[] args) {
-            AppDbContext context = new AppDbContext(); 
+            
         }
     }
 }
