@@ -11,6 +11,9 @@ namespace PRSLibraryProject.Models {
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Request> Requests { get; set; }
+
 
         public PRSDbContext() {}
 
@@ -29,11 +32,14 @@ namespace PRSLibraryProject.Models {
                 e.HasIndex(p/*property*/ => p.UserName).IsUnique(true); //sql will not let tables have save name
             });
 
-            builder.Entity<Vendor>(e=> {
-                e.HasIndex(p => p.Code).IsUnique(true);
+            builder.Entity<Vendor>(e => {
+                e.HasIndex(c => c.Code).IsUnique(true);
+            });
+
+            builder.Entity<Product>(e => {
+                e.HasIndex(pn => pn.PartNbr).IsUnique(true);
             });
         }
-
 
     }
 }

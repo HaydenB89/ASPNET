@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PRSLibraryProject.Models;
 
 namespace PRSLibraryProject.Migrations
 {
     [DbContext(typeof(PRSDbContext))]
-    partial class PRSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220214190053_added product to model")]
+    partial class addedproducttomodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,56 +54,15 @@ namespace PRSLibraryProject.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Id")
+                        .IsUnique();
+
                     b.HasIndex("PartNbr")
                         .IsUnique();
 
                     b.HasIndex("VendorId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("PRSLibraryProject.Models.Request", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("DeliveryMode")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Descripton")
-                        .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
-
-                    b.Property<string>("Justification")
-                        .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
-
-                    b.Property<string>("RejectionReason")
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("decimal(11,2)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Requests");
                 });
 
             modelBuilder.Entity("PRSLibraryProject.Models.User", b =>
@@ -215,17 +176,6 @@ namespace PRSLibraryProject.Migrations
                         .IsRequired();
 
                     b.Navigation("Vendor");
-                });
-
-            modelBuilder.Entity("PRSLibraryProject.Models.Request", b =>
-                {
-                    b.HasOne("PRSLibraryProject.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }
