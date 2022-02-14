@@ -24,7 +24,9 @@ namespace PRSLibraryProject.Models {
         }
 
         protected override void OnModelCreating(ModelBuilder builder) {
-
+            builder.Entity<User>(e/*entity*/ => {                       // the e. and p. could be called anything
+                e.HasIndex(p/*property*/ => p.UserName).IsUnique(true); //sql will not let tables have save name
+            });
         }
 
 
