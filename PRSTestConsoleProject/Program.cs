@@ -14,7 +14,7 @@ namespace PRSTestConsoleProject {
 
             var userController = new RequestsController(context);
 
-            var reqs = reqCtrl.GetRequestsInReview(context);
+            var reqs = reqCtrl.GetRequestsInReview(3);
 
             foreach (var req in reqs) {
                 Console.WriteLine($"{req.Description} {req.Status} {req.Total} {req.UserId}");
