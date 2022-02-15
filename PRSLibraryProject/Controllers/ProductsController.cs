@@ -20,5 +20,22 @@ namespace PRSLibraryProject.Controllers {
         public Product GetByPk(int id) {
             return _context.Products.Find(id);
         }
+
+        public Product Create(Product product) {
+            if (product == null) {
+                throw new ArgumentNullException("product");
+            }
+            if (product.Id != 0) {
+                throw new ArgumentException("Product.Id must be zero!");
+            }
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            return product;
+        }
+
+        public void Delete(int id) { 
+        
+        }
+
     }
 }
