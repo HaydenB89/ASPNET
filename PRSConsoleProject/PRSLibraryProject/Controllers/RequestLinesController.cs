@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PRSLibraryProject.Controllers {
-    internal class RequestLinesController {
+    public class RequestLinesController {
 
         private readonly PRSDbContext _context;
 

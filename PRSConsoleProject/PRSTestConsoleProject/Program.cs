@@ -8,6 +8,12 @@ using PRSLibraryProject.Controllers;
 
 namespace PRSTestConsoleProject {
     class Program {
+
+        static void Print(Product product) {
+            Console.WriteLine($"{product.Id,-5} {product.PartNbr,-12} {product.Name,-12} " +
+                                $"{product.Price,10:c} {product.Vendor.Name,-15}");
+        }
+
         static void Main(string[] args) {
 
             var context = new PRSDbContext();
