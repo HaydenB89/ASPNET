@@ -1,4 +1,5 @@
-﻿using PRSLibraryProject.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PRSLibraryProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,12 @@ namespace PRSLibraryProject.Controllers {
         }
 
         public IEnumerable<Product> GetAll() {
-            return _context.Products.ToList();
+            return _context.Products.Include(x=>x.Vendor).ToList();
         }
 
         public Product GetByPk(int id) {
-            return _context.Products.Find(id);
+            return _context.Products.Include(x => x.Vendor)
+                                    .SingleOrDefault(x => x.Id == id);
         }
 
         public Product Create(Product product) {
@@ -33,8 +35,13 @@ namespace PRSLibraryProject.Controllers {
             return product;
         }
 
-        public void Delete(int id) { 
-        
+        public void Remove(int id) {
+            var product = _context.Products.Find(id);
+            if(product is null) {
+                throw new Exception("Product not found!");
+            }
+            _context.Products.Remove(product);
+            _context.SaveChanges();
         }
 
     }
