@@ -16,9 +16,9 @@ namespace PRSLibraryProject.Controllers {
 
         public IEnumerable<Request> GetRequestsInReview(int userId) {
             var requests = _context.Requests
-                                        Where(x => x.Status == "REVIEW"
-                                                && xUserId != userId)
-                                        ToList();
+                                        .Where(x => x.Status == "REVIEW"
+                                                && x.UserId != userId)
+                                        .ToList();
             return requests;
         }
 
@@ -30,10 +30,6 @@ namespace PRSLibraryProject.Controllers {
         public void SetRejected(Request request) {
             request.Status = "REJECTED";
             Change(request);
-        }
-
-        private void Change(Request request) {
-            throw new NotImplementedException();
         }
 
         public void SetReview(Request request) {
@@ -51,12 +47,13 @@ namespace PRSLibraryProject.Controllers {
         }
 
         public Request GetByPk(int id) {
-            return _context.Requests.Find(id);
+            return _context.Requests.Include(x => x.User)
+                                    .SingleOrDefault(x => x.Id == id);
         }
 
         public Request Create(Request request) {
             if (request == null) {
-                throw new ArgumentNullException("request");
+                throw new ArgumentNullException("Request");
             }
             if (request.Id != 0) {
                 throw new ArgumentException("Request.Id must be zero!");
@@ -66,8 +63,17 @@ namespace PRSLibraryProject.Controllers {
             return request;
         }
 
-        public void Delete(int id) {
+        public void Change(Request user) {
+            _context.SaveChanges();
+        }
 
+        public void Remove(int id) {
+            var Request = _context.Requests.Find(id);
+            if(Request is null) {
+                throw new Exception("Request not found!");
+            }
+            _context.Requests.Remove(Request);
+            _context.SaveChanges();
         }
     }
 }
