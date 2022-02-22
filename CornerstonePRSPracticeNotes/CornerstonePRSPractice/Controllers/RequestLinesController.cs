@@ -44,7 +44,8 @@ namespace CornerstonePRSPractice.Controllers
         public async Task<ActionResult<IEnumerable<RequestLine>>> GetRequestLines()
         {
             return await _context.RequestLines
-                                    .Include(x => x.Request.User)
+                                    .Include(x => x.Product)
+                                        .ThenInclude(x => x.Vendor)
                                     .ToListAsync();
         }
 
@@ -52,7 +53,10 @@ namespace CornerstonePRSPractice.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<RequestLine>> GetRequestLine(int id)
         {
-            var requestLine = await _context.RequestLines.FindAsync(id);
+            var requestLine = await _context.RequestLines
+                                            .Include(x => x.Product)
+                                                .ThenInclude(x => x.Vendor)
+                                            .SingleOrDefaultAsync(x => x.Id == id);
 
             if (requestLine == null)
             {
