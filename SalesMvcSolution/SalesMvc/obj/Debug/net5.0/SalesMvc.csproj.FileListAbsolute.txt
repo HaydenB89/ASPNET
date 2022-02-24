@@ -155,3 +155,9 @@ C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\Orders\Delete
 C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\Orders\Details.cshtml.g.cs
 C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\Orders\Edit.cshtml.g.cs
 C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\Orders\Index.cshtml.g.cs
+C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\OrderLines\Create.cshtml.g.cs
+C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\OrderLines\Delete.cshtml.g.cs
+C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\OrderLines\Details.cshtml.g.cs
+C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\OrderLines\Edit.cshtml.g.cs
+C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\OrderLines\Index.cshtml.g.cs
+C:\repos\C#\SalesMvcSolution\SalesMvc\obj\Debug\net5.0\Razor\Views\Orders\Lines.cshtml.g.cs
