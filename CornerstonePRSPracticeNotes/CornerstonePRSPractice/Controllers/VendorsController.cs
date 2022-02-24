@@ -20,6 +20,19 @@ namespace CornerstonePRSPractice.Controllers
             _context = context;
         }
 
+        ////*me GET: api/Vendors/po/5
+        //[HttpGet("po/{vendorId}")]
+        //public async Task<ActionResult<PO>> CreatePO(int vendorId) {
+
+        //    var vendor = await _context.Vendors.FindAsync(vendorId);
+
+        //    vendor.Total = (
+                
+        //        )
+        //    return NoContent();//temporary 
+        //}
+
+
         // GET: api/Vendors
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Vendor>>> GetVendors()

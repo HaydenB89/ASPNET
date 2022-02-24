@@ -12,6 +12,8 @@ namespace CornerstonePRSPractice.Models {
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
         public virtual DbSet<RequestLine> RequestLines { get; set; }
+        public virtual DbSet<PO> Pos { get; set; }
+        public virtual DbSet<PoLine> PoLines { get; set; }
 
 
         public PrsDbContext(DbContextOptions<PrsDbContext>options) : base(options) { }
