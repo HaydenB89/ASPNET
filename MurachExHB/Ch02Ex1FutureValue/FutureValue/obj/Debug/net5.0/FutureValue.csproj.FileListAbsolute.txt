@@ -32,3 +32,4 @@ C:\repos\C#\MurachExHB\Ch02Ex1FutureValue\FutureValue\obj\Debug\net5.0\ref\Futur
 C:\repos\C#\MurachExHB\Ch02Ex1FutureValue\FutureValue\obj\Debug\net5.0\FutureValue.pdb
 C:\repos\C#\MurachExHB\Ch02Ex1FutureValue\FutureValue\obj\Debug\net5.0\FutureValue.genruntimeconfig.cache
 C:\repos\C#\MurachExHB\Ch02Ex1FutureValue\FutureValue\obj\Debug\net5.0\FutureValue.csproj.CopyComplete
+C:\repos\C#\MurachExHB\Ch02Ex1FutureValue\FutureValue\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs

@@ -1,4 +1,5 @@
-﻿@*
+﻿@model FutureValueModel
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -9,11 +10,47 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Home Page</title>
+    <title>Future Value Calculator</title>
+    <style>
+        body{
+            padding: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            margin-top: 0;
+            color: navy:
+        }
+        label{
+            display: inline-block;
+            width: 10em;
+            padding-right: 1em
+        }
+        div{
+            margin-bottom: .5em;
+        }
+    </style>
 </head>
 <body>
     <h1>Future Value Calculator</h1>
-    <p>Customer Name: @ViewBag.Name</p>
-    <p>Future Value: @ViewBag.FV.ToString("c2")</p>
+    <form asp-action="Index" method="post">
+        <div>
+            <label asp-for="MonthlyInvestment">Monthly Invesment:</label>
+            <input asp-for="MonthlyInvestment" />
+        </div>
+        <div>
+            <label asp-for="YearlyInterestRate">Yearly Interest Rate:</label>
+            <input asp-for="YearlyInterestRate" />
+        </div>
+        <div>
+            <label asp-for="Years">Number of Years:</label>
+            <input asp-for="Years" />
+        </div>
+        <div>
+            <label>Future Value:</label>
+            <input value=" @ViewBag.FV.ToString("c2")" readonly />
+        </div>
+        <button type="submit">Calculate</button>
+        <a asp-action="Index">Clear</a>
+    </form>
 </body>
 </html>
