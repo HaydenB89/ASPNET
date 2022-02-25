@@ -19,6 +19,5 @@ namespace FutureValue.Controllers {
             ViewBag.FV = model.CalculateFutureValue();
             return View(model);
         }
-
     }
 }

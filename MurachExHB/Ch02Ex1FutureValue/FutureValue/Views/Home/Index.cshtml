@@ -1,4 +1,4 @@
-﻿@model FutureValueModel
+﻿@model FutureValueModel     /*--@model is the same as c# "using"--*/
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -7,28 +7,11 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="en">     <!--added lang (best practices for user-friendly)-->
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" /> <!--what the user sees, content params are default to wha the device will support-->
     <title>Future Value Calculator</title>
-    <style>
-        body{
-            padding: 1em;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        h1{
-            margin-top: 0;
-            color: navy:
-        }
-        label{
-            display: inline-block;
-            width: 10em;
-            padding-right: 1em
-        }
-        div{
-            margin-bottom: .5em;
-        }
-    </style>
+    <link href="~/css/custom.css" rel="stylesheet" />
 </head>
 <body>
     <h1>Future Value Calculator</h1>
@@ -47,7 +30,7 @@
         </div>
         <div>
             <label>Future Value:</label>
-            <input value=" @ViewBag.FV.ToString("c2")" readonly />
+            <input value=" @ViewBag.FV.ToString("c2")" readonly /> <!--"c2" is curency w/2 dec places-->
         </div>
         <button type="submit">Calculate</button>
         <a asp-action="Index">Clear</a>

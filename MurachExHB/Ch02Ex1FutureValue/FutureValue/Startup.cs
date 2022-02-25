@@ -28,10 +28,10 @@ namespace FutureValue {
             }
             else {
                 app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
+               // app.UseHsts(); /*this is if you have HTTPS active (which we don't)*/
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection(); /*this is if you have HTTPS active (which we don't)*/
             app.UseStaticFiles();
 
             app.UseRouting();
